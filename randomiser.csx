@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -63,6 +63,10 @@ void Randomise(UndertaleGameObject[] canBeRandomised, UndertaleGameObject[] canB
 //---------------------------------------------------
 //actual randomising
 
+bool randomiseEnemies = true;
+bool randomiseItems = true;
+
+
 //originalEnemyPool = every enemy in the game
 //newEnemyPool = every enemy in the game
 //ignore: gunner that starts run, "who would win" ricky in hotel-4, card players in mansion-3 (2), actors in dragon-1 cutscene (3)
@@ -70,7 +74,7 @@ string[] originalEnemyPool = new string[] { "obj_enemy_grunt", "obj_enemy_meele"
 string[] newEnemyPool = new string[] { "obj_enemy_grunt", "obj_enemy_meele", "obj_enemy", "obj_enemy_shotgun", "obj_enemy_shieldcop", "obj_enemy_cop", "obj_enemy_redpomp", "obj_enemy_machinegun" };
 UndertaleGameObject[] enemiesIn = GetObjectsFromNames(originalEnemyPool);
 UndertaleGameObject[] enemiesOut = GetObjectsFromNames(newEnemyPool);
-Randomise(enemiesIn, enemiesOut, new uint[] { 100097, 100782, 105194, 105195, 106829, 106825, 106826 });
+if (randomiseEnemies) Randomise(enemiesIn, enemiesOut, new uint[] { 100097, 100782, 105194, 105195, 106829, 106825, 106826 });
 
 //originalThrowablePool = every item in the game
 //newThrowablePool = every item in the game
@@ -79,4 +83,4 @@ string[] originalThrowablePool = new string[] { "obj_throwable_bust", "obj_throw
 string[] newThrowablePool = new string[] { "obj_throwable_bust", "obj_throwable_lamp", "obj_throwable_butcher", "obj_throwable_plant", "obj_throwable_dec_sword", "obj_throwable_knife", "obj_throwable_pistol", "obj_throwable_beerbottle_1", "obj_throwable_beerbottle_2", "obj_throwable_beerbottle_3", "obj_throwable_beerbottle_4", "obj_throwable_explosive_vial", "obj_throwable_smoke_vial", "obj_throwable_remote_mine", "obj_flamethrower"};
 UndertaleGameObject[] throwablesIn = GetObjectsFromNames(originalThrowablePool);
 UndertaleGameObject[] throwablesOut = GetObjectsFromNames(newThrowablePool);
-Randomise(throwablesIn, throwablesOut, new uint[] { 103652, 105270 });
+if (randomiseItems) Randomise(throwablesIn, throwablesOut, new uint[] { 103652, 105270 });
